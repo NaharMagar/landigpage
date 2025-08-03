@@ -955,6 +955,48 @@
                 padding: 6px 16px;
             }
         }
+          #leadForm {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #e371f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            direction: rtl;
+            font-family: 'Heebo', sans-serif;
+        }
+
+        #leadForm input,
+        #leadForm textarea {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #leadForm button {
+            width: 100%;
+            background-color: #764ba2;
+            color: white;
+            padding: 14px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #leadForm button:hover {
+            background-color: #45a049;
+        }
+
+        #leadForm h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -1088,3 +1130,23 @@
                         </div>
                         <div class="testimonial-avatar">👩‍💼</div>
                     </div>
+    <!-- Contact Section -->
+<section class="section contact" id="contact">
+<div class="container">
+    <div class="section-header">
+    <div class="section-badge">צור קשר</div>
+    <h2 class="section-title">השאר פרטים ונחזור אליך</h2>
+    <p class="section-subtitle">
+        ספר לנו איך נוכל לעזור לך - נחזור אליך בהקדם
+    </p>
+    </div>
+
+    <form id="leadForm" action="https://formspree.io/f/mblkazjo" method="POST">
+    <input type="email" name="email" placeholder="האימייל שלך" required>
+    <input type="tel" name="phone" placeholder="מספר הטלפון שלך" required>
+    <textarea name="message" placeholder="ההודעה שלך" required></textarea>
+    <button type="submit">שלח</button>
+    </form>
+</div>
+
+
