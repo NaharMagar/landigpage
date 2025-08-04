@@ -6,7 +6,7 @@
     <title>דפי נחיתה מקצועיים - רק 300₪</title>
     <style>
         .lottery-banner {
-            background: linear-gradient(90deg, #cf88ff,     #a404e9);
+            background: linear-gradient(90deg, #fcdee0,     #a471d8);
             color: #3046a1;
             padding: 8%;
             border-radius: 15px;
@@ -14,6 +14,8 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             animation: pulse 2s infinite;
             text-align: center;
+            outline: 3px solid #3046a1; /* צבע הכחול של הטקסט */
+            outline-offset: -10px; /* מרחק הקו מהקופסה */
         }
 
         .lottery-title {
@@ -871,6 +873,7 @@
                 width: 100%;
                 max-width: 300px;
                 text-align: center;
+                box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
             }
             
             .features-grid {
@@ -953,6 +956,7 @@
             .hero-badge {
                 font-size: 0.8rem;
                 padding: 6px 16px;
+                box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
             }
         }
           #leadForm {
@@ -997,6 +1001,10 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        #leadForm input[type="tel"] {
+            direction: rtl;
+            text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -1032,12 +1040,12 @@
             <div class="floating-dot"></div>
         </div>
         <div class="hero-content">
-            <div class="hero-badge">✨ מיוחד לחודש זה</div>
+            <div class="hero-badge">במיוחד לחודש זה</div>
             <h1>
                 דפי נחיתה מקצועיים
             </h1>
             <div class="lottery-banner">
-                <div class="lottery-title">רק 300₪</div>
+                <div class="lottery-title">✨רק 300₪✨</div>
                 <div class="lottery-text">עיצוב אישי | עלייה מהירה לאוויר | טכנולוגיית AI מתקדמת</div>
             </div>  
             <p>
@@ -1115,8 +1123,9 @@
                             <h4>שרה כהן</h4>
                             <span>בעלת חנות אונליין</span>
                         </div>
-                        <div class="testimonial-avatar">👩‍💼</div>
+                        
                     </div>
+                    <div class="testimonial-avatar">👩‍💼</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars">☆ ☆ ☆ ☆ ☆</div>
@@ -1128,8 +1137,9 @@
                             <h4>עומר שמילוביץ'</h4>
                             <span>בעל חנות קרמיקה (ועכשיו גם אינטרנטית)</span>
                         </div>
-                        <div class="testimonial-avatar">👩‍💼</div>
+    
                     </div>
+                    <div class="testimonial-avatar">👩‍💼</div>
                 </section>
     <!-- Contact Section -->
 <section class="section contact" id="contact">
@@ -1142,12 +1152,12 @@
     </p>
     </div>
 
-    <form id="leadForm" action="https://formspree.io/f/mblkazjo" method="POST">
-    <input type="email" name="email" placeholder="האימייל שלך" required>
-    <input type="tel" name="phone" placeholder="מספר הטלפון שלך" required>
-    <textarea name="message" placeholder="תתאר לנו את העסק בשורה או שתיים" required></textarea>
-    <button type="submit">שלח</button>
-    </form>
-</div>
+        <form id="leadForm" action="https://formspree.io/f/mblkazjo" method="POST">
+        <input type="email" name="email" placeholder="האימייל שלך" required>
+        <input type="tel" name="phone" placeholder="מספר הטלפון שלך" required>
+        <textarea name="message" placeholder="תתאר לנו את העסק בשורה או שתיים" required></textarea>
+        <button type="submit">שלח</button>
+        </form>
+    </div>
 
 
