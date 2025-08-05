@@ -1009,6 +1009,62 @@
                 padding: 16px 35px;
                 font-size: 1.1rem;
             }
+
+            /* ברירת מחדל */
+            .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            }
+
+            /* עיצוב מובייל */
+            @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #111;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                width: 200px;
+                padding: 20px;
+                border-radius: 10px;
+                z-index: 999;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 25px;
+                height: 20px;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .mobile-menu-toggle span {
+                display: block;
+                height: 3px;
+                background-color: #fff;
+                border-radius: 3px;
+            }
+            }
+
+            /* כפתור תפריט מוסתר בדסקטופ */
+            @media (min-width: 769px) {
+            .mobile-menu-toggle {
+                display: none;
+            }
+            }
+
         }
 
         /* Generate luxury particles */
@@ -1042,18 +1098,21 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">כְּמוֹ שֶׁל פַּעַם</a>
-            <ul class="nav-links">
-                <li><a href="#features">שירותים בלעדיים</a></li>
-                <li><a href="#testimonials">לקוחות VIP</a></li>
-                <li><a href="#contact">חברות פרימיום</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+            
+            <ul class="nav-links" id="mobileMenu">
+            <li><a href="#features">שירותים בלעדיים</a></li>
+            <li><a href="#testimonials">לקוחות VIP</a></li>
+            <li><a href="#contact">חברות פרימיום</a></li>
+        </ul>
+
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
 
     <div class="mobile-menu" id="mobileMenu">
         <ul class="nav-links">
@@ -1136,7 +1195,9 @@
     <section class="section testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">💫 מה אומרים חברי ה-VIP שלנו</div>
+                <div class="section-badge">
+                   מה אומרים חברי ה-VIP שלנו <i class="fas fa-trophy"></i>
+                </div>
                 <h2 class="section-title">סיפורי הצלחה בלעדיים</h2>
                 <p class="section-subtitle">
                     לקוחות שחוו את החוויה הפרימיום שלנו וקיבלו תוצאות יוצאות דופן
@@ -1187,7 +1248,7 @@
             </div>
 
             <form id="leadForm" action="https://formspree.io/f/mblkazjo" method="POST">
-                <h2>✨ פרטים להתייעצות לקראת הגשמת חלום ✨</h2>
+                <h2>קודם מרוצים - אחר כך משלמים</h2>
                 <input type="email" name="email" placeholder="האימייל הפרטי שלכם" required>
                 <input type="tel" name="phone" placeholder="מספר הטלפון שלכם" required>
                 <textarea name="message" placeholder="ספרו לנו על החזון שלכם ואיך אנחנו יכולים להפוך אותו למציאות" required></textarea>
