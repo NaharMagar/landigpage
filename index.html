@@ -3,48 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דפי נחיתה מקצועיים - רק 350₪</title>
+    <title>דפי נחיתה מקצועיים - חוויה בלעדית</title>
     <style>
-        .lottery-banner {
-            background: linear-gradient(90deg, #fcdee0,     #a471d8);
-            color: #3046a1;
-            padding: 8%;
-            border-radius: 15px;
-            margin: 8% 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            animation: pulse 2s infinite;
-            text-align: center;
-            outline: 3px solid #3046a1; /* צבע הכחול של הטקסט */
-            outline-offset: -10px; /* מרחק הקו מהקופסה */
-        }
-
-        .lottery-title {
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #3046a1;
-        }
-
-        .lottery-text {
-            font-size: 1.1em;
-            line-height: 1.4;
-        }
-
-        /* Animation */
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 rgba(255, 0, 0, 0);
-            }
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 0 10px rgba(48, 70, 161, 0.5);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 rgba(255, 0, 0, 0);
-            }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -53,52 +14,129 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #2d3748;
-            background: linear-gradient(135deg, #667eea 0%, #a471d8 25%, #e371f9 60%, #8570fd 75%, #4facfe 100%);
+            color: #ffffff;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0a0a0a 100%);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            animation: exclusiveGradient 20s ease infinite;
             overflow-x: hidden;
+            position: relative;
         }
 
-        @keyframes gradientShift {
+        /* Exclusive background effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes exclusiveGradient {
             0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
             100% { background-position: 0% 50%; }
+        }
+
+        /* Floating luxury particles */
+        .luxury-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .luxury-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            border-radius: 50%;
+            animation: luxuryFloat 12s infinite linear;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        @keyframes luxuryFloat {
+            0% { 
+                transform: translateY(100vh) rotate(0deg) scale(0); 
+                opacity: 0; 
+            }
+            10% { 
+                opacity: 1; 
+                transform: translateY(90vh) rotate(36deg) scale(1); 
+            }
+            90% { 
+                opacity: 1; 
+                transform: translateY(-10vh) rotate(324deg) scale(1); 
+            }
+            100% { 
+                transform: translateY(-20vh) rotate(360deg) scale(0); 
+                opacity: 0; 
+            }
         }
 
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(67, 9, 100, 0.95);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(126, 43, 185, 0.1);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #d4af37;
             text-decoration: none;
             z-index: 1001;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+
+        .logo::after {
+            content: '✨';
+            position: absolute;
+            top: -5px;
+            right: -25px;
+            font-size: 0.8rem;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             list-style: none;
             transition: all 0.3s ease;
         }
@@ -107,60 +145,69 @@
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            padding: 10px 0;
         }
 
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, #d4af37, #ffd700);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
         }
 
         .nav-links a:hover {
-            color: #ffffff;
+            color: #d4af37;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::before {
             width: 100%;
         }
 
-        /* Mobile Menu Styles */
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            padding: 5px;
+            padding: 8px;
             z-index: 1001;
             background: none;
             border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(212, 175, 55, 0.1);
         }
 
         .mobile-menu-toggle span {
-            width: 25px;
+            width: 28px;
             height: 3px;
-            background: #ffffff;
-            margin: 3px 0;
-            transition: all 0.3s ease;
+            background: linear-gradient(90deg, #d4af37, #ffd700);
+            margin: 4px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-radius: 2px;
         }
 
         .mobile-menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg) translate(8px, 8px);
         }
 
         .mobile-menu-toggle.active span:nth-child(2) {
             opacity: 0;
+            transform: scale(0);
         }
 
         .mobile-menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
+            transform: rotate(-45deg) translate(8px, -8px);
         }
 
         .mobile-menu {
@@ -169,10 +216,10 @@
             right: -100%;
             width: 100%;
             height: 100vh;
-            background: rgba(67, 9, 100, 0.98);
+            background: rgba(10, 10, 10, 0.98);
             backdrop-filter: blur(20px);
-            transition: right 0.3s ease;
-            padding-top: 80px;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-top: 100px;
             z-index: 1000;
         }
 
@@ -182,18 +229,19 @@
 
         .mobile-menu .nav-links {
             flex-direction: column;
-            gap: 30px;
-            padding: 40px;
+            gap: 40px;
+            padding: 60px 40px;
             height: 100%;
             justify-content: flex-start;
         }
 
         .mobile-menu .nav-links a {
-            font-size: 1.5rem;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.8rem;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
             width: 100%;
             text-align: center;
+            font-family: 'Playfair Display', serif;
         }
 
         .hero {
@@ -203,8 +251,9 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background: radial-gradient(ellipse at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-            padding-top: 80px;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            padding-top: 120px;
+            overflow: hidden;
         }
 
         .hero-grid {
@@ -214,93 +263,190 @@
             right: 0;
             bottom: 0;
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
             pointer-events: none;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(80px, 80px); }
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 1000px;
             z-index: 2;
             position: relative;
-            animation: fadeInUp 1s ease-out;
-            padding: 0 20px;
+            animation: luxuryFadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 40px;
         }
 
-        @keyframes fadeInUp {
+        @keyframes luxuryFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(60px) scale(0.95);
+                filter: blur(10px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
+                filter: blur(0);
             }
         }
 
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 215, 0, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 40px;
             backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 32px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: badgeGlow 4s ease-in-out infinite;
+            color: #d4af37;
+        }
+
+        @keyframes badgeGlow {
+            0%, 100% { 
+                box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+            50% { 
+                box-shadow: 0 12px 40px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            }
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
             font-weight: 800;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 50%, #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            animation: titleShimmer 6s ease-in-out infinite;
         }
 
-        .hero .price-highlight {
-            color: #667eea;
-            font-size: 5rem;
-            display: block;
-            margin: 20px 0;
-            text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+        @keyframes titleShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .lottery-banner {
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.15) 0%, 
+                rgba(255, 215, 0, 0.1) 25%,
+                rgba(212, 175, 55, 0.15) 50%,
+                rgba(255, 215, 0, 0.1) 75%,
+                rgba(212, 175, 55, 0.15) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 50px 0;
+            box-shadow: 
+                0 20px 60px rgba(212, 175, 55, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: luxuryPulse 4s ease-in-out infinite;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+
+        .lottery-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: luxuryRotate 8s linear infinite;
+        }
+
+        @keyframes luxuryRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes luxuryPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 25px 80px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        .lottery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #d4af37;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .lottery-text {
+            font-size: 1.3rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 40px;
-            max-width: 600px;
+            margin-bottom: 50px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         .cta-group {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
+            margin-top: 40px;
         }
 
         .cta-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 18px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+            color: #1a1a2e;
+            padding: 22px 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             border: none;
             cursor: pointer;
+            box-shadow: 
+                0 15px 40px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-primary::before {
@@ -310,8 +456,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
         }
 
         .cta-primary:hover::before {
@@ -319,85 +465,101 @@
         }
 
         .cta-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 25px 60px rgba(212, 175, 55, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
 
         .cta-secondary {
-            color: rgba(255, 255, 255, 0.9);
+            color: #d4af37;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 18px 40px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 22px 50px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
+            background: rgba(212, 175, 55, 0.05);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(212, 175, 55, 0.15);
+            border-color: #d4af37;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
         }
 
         .section {
-            padding: 80px 0;
+            padding: 120px 0;
             position: relative;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .section-badge {
             display: inline-block;
-            background: rgba(57, 12, 68, 0.1);
-            color: #520162;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #ffffff;
+            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.7);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.05) 0%, 
+                rgba(212, 175, 55, 0.05) 50%, 
+                rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 25px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(15px);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
         .feature-card::before {
@@ -406,10 +568,10 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.5), transparent);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
 
         .feature-card:hover::before {
@@ -417,384 +579,285 @@
         }
 
         .feature-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(102, 126, 234, 0.3);
-            transform: translateY(-5px);
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(212, 175, 55, 0.08) 50%, 
+                rgba(255, 255, 255, 0.08) 100%);
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 12px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            box-shadow: 
+                0 10px 30px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 15px 40px rgba(212, 175, 55, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
 
         .feature-card h3 {
-            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #ffffff;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
         }
 
         .feature-card p {
             color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-            font-size: 0.95rem;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         .testimonials {
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .testimonial-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-5px);
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-left: 15px;
-        }
-
-        .testimonial-info h4 {
-            color: #ffffff;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .testimonial-info span {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-        }
-
-        .testimonial-text {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        .stars {
-            color: #ffd700;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Lead Form Styles */
-        .lead-form-container {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .lead-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: right;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-        }
-
-        .form-group select option {
-            background: #2d3748;
-            color: #ffffff;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin: 25px 0;
-        }
-
-        .checkbox-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .checkbox-label input[type="checkbox"] {
-            width: auto;
-            margin: 0;
-            opacity: 0;
-            position: absolute;
-        }
-
-        .checkmark {
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            background: transparent;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .checkbox-label input[type="checkbox"]:checked + .checkmark {
-            background: #667eea;
-            border-color: #667eea;
-        }
-
-        .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
-            content: '✓';
-            color: white;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-
-        .form-submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 18px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.03) 0%, 
+                rgba(0, 0, 0, 0.2) 50%, 
+                rgba(212, 175, 55, 0.03) 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             position: relative;
-            overflow: hidden;
         }
 
-        .form-submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        .form-submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .form-success {
-            text-align: center;
-            padding: 30px;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .success-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .form-success h3 {
-            color: #10b981;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        .form-success p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem;
-        }
-
-        .alternative-contact {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            margin-top: 30px;
-        }
-
-        .contact-methods {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-        }
-
-        .whatsapp-btn:hover {
-            background: #1faa56;
-            transform: translateY(-2px);
-        }
-
-        .email-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .email-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .footer {
-            border-top: 1px solid rgba(102, 126, 234, 0.2);
-            padding: 40px 0;
-            text-align: center;
-            color: #4a5568;
-            background: rgba(43, 4, 66, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .floating-elements {
+        .testimonials::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
             pointer-events: none;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.05) 0%, 
+                rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 25px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card:hover {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.08) 0%, 
+                rgba(212, 175, 55, 0.08) 100%);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-left: 20px;
+            box-shadow: 
+                0 8px 25px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .testimonial-info h4 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-info span {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .stars {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .contact {
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.05) 0%, 
+                rgba(0, 0, 0, 0.3) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        #leadForm {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 50px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.05) 0%, 
+                rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 25px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            direction: rtl;
+            font-family: 'Inter', sans-serif;
+            backdrop-filter: blur(20px);
+            position: relative;
             overflow: hidden;
         }
 
-        .floating-dot {
+        #leadForm::before {
+            content: '';
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(102, 126, 234, 0.6);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
         }
 
-        .floating-dot:nth-child(1) {
-            top: 20%;
-            right: 10%;
-            animation-delay: 0s;
+        #leadForm h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #d4af37;
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
         }
 
-        .floating-dot:nth-child(2) {
-            top: 50%;
-            right: 80%;
-            animation-delay: 2s;
+        #leadForm input,
+        #leadForm textarea {
+            width: 100%;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
 
-        .floating-dot:nth-child(3) {
-            top: 80%;
-            right: 30%;
-            animation-delay: 4s;
+        #leadForm input::placeholder,
+        #leadForm textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(-20px);
-                opacity: 1;
-            }
+        #leadForm input:focus,
+        #leadForm textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 
+                0 0 0 3px rgba(212, 175, 55, 0.2),
+                0 8px 25px rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+
+        #leadForm input[type="tel"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        #leadForm button {
+            width: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #1a1a2e;
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 15px 40px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #leadForm button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        #leadForm button:hover::before {
+            left: 100%;
+        }
+
+        #leadForm button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(212, 175, 55, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .footer {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 60px 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            background: linear-gradient(135deg, 
+                rgba(10, 10, 10, 0.8) 0%, 
+                rgba(26, 26, 46, 0.8) 100%);
+            backdrop-filter: blur(20px);
         }
 
         /* Enhanced Mobile Styles */
@@ -808,11 +871,15 @@
             }
             
             .navbar {
-                padding: 12px 0;
+                padding: 15px 0;
+            }
+            
+            .nav-container {
+                padding: 0 20px;
             }
             
             .logo {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             
             .hero {
@@ -820,201 +887,164 @@
                 padding-top: 100px;
             }
             
+            .hero-content {
+                padding: 0 20px;
+            }
+            
             .hero h1 {
-                font-size: 2.2rem;
-                margin-bottom: 25px;
+                font-size: 2.5rem;
+                margin-bottom: 30px;
             }
             
             .hero p {
                 font-size: 1.1rem;
-                margin-bottom: 30px;
-            }
-            
-            .hero .price-highlight {
-                font-size: 2.8rem;
+                margin-bottom: 40px;
             }
             
             .lottery-banner {
-                padding: 6%;
-                margin: 6% 0;
+                padding: 30px 20px;
+                margin: 40px 0;
             }
             
             .lottery-title {
-                font-size: 1.8rem;
-            }
-            
-            .lottery-text {
-                font-size: 1rem;
-            }
-            
-            .section-title {
                 font-size: 2rem;
             }
             
+            .lottery-text {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
             .section-subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .section {
-                padding: 60px 0;
+                padding: 80px 0;
+            }
+            
+            .container {
+                padding: 0 20px;
             }
             
             .section-header {
-                margin-bottom: 40px;
+                margin-bottom: 60px;
             }
             
             .cta-group {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
             
             .cta-primary,
             .cta-secondary {
                 width: 100%;
-                max-width: 300px;
+                max-width: 350px;
                 text-align: center;
-                box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+                padding: 18px 40px;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
-                margin-top: 40px;
+                gap: 30px;
+                margin-top: 60px;
             }
             
             .feature-card {
-                padding: 25px;
+                padding: 30px;
             }
             
             .testimonials-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 30px;
             }
             
             .testimonial-card {
-                padding: 25px;
+                padding: 30px;
             }
             
-            .contact-methods {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+            #leadForm {
+                padding: 30px 25px;
+                margin: 40px 20px;
             }
             
-            .contact-btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-            
-            /* Mobile Form Styles */
-            .lead-form-container {
-                padding: 25px;
-                margin: 30px 0;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .form-group {
-                margin-bottom: 15px;
-            }
-            
-            .checkbox-label {
-                font-size: 0.85rem;
+            #leadForm h2 {
+                font-size: 1.7rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
             .lottery-title {
-                font-size: 1.5rem;
+                font-size: 1.7rem;
             }
             
             .lottery-text {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             
             .section-title {
-                font-size: 1.7rem;
+                font-size: 1.8rem;
             }
             
             .feature-card,
             .testimonial-card {
-                padding: 20px;
+                padding: 25px;
             }
             
             .hero-badge {
-                font-size: 0.8rem;
-                padding: 6px 16px;
-                box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+                font-size: 0.85rem;
+                padding: 10px 20px;
+            }
+            
+            .cta-primary,
+            .cta-secondary {
+                padding: 16px 35px;
+                font-size: 1.1rem;
             }
         }
-          #leadForm {
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 25px;
-            background-color: #e371f9;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            direction: rtl;
-            font-family: 'Heebo', sans-serif;
-        }
 
-        #leadForm input,
-        #leadForm textarea {
-            width: 100%;
-            padding: 12px 16px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        #leadForm button {
-            width: 100%;
-            background-color: #764ba2;
-            color: white;
-            padding: 14px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #leadForm button:hover {
-            background-color: #45a049;
-        }
-
-        #leadForm h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        #leadForm input[type="tel"] {
-            direction: rtl;
-            text-align: right;
-        }
+        /* Generate luxury particles */
+        .luxury-particles .luxury-particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .luxury-particles .luxury-particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .luxury-particles .luxury-particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .luxury-particles .luxury-particle:nth-child(4) { left: 40%; animation-delay: 6s; }
+        .luxury-particles .luxury-particle:nth-child(5) { left: 50%; animation-delay: 8s; }
+        .luxury-particles .luxury-particle:nth-child(6) { left: 60%; animation-delay: 10s; }
+        .luxury-particles .luxury-particle:nth-child(7) { left: 70%; animation-delay: 1s; }
+        .luxury-particles .luxury-particle:nth-child(8) { left: 80%; animation-delay: 3s; }
+        .luxury-particles .luxury-particle:nth-child(9) { left: 90%; animation-delay: 5s; }
+        .luxury-particles .luxury-particle:nth-child(10) { left: 15%; animation-delay: 7s; }
     </style>
 </head>
 <body>
+    <!-- Luxury floating particles -->
+    <div class="luxury-particles">
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+        <div class="luxury-particle"></div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">כְּמוֹ שֶׁל פַּעַם</a>
             <ul class="nav-links">
-                <li><a href="#features">שירותים</a></li>
-                <li><a href="#testimonials">לקוחות</a></li>
-                <li><a href="#contact">צור קשר</a></li>
+                <li><a href="#features">שירותים בלעדיים</a></li>
+                <li><a href="#testimonials">לקוחות VIP</a></li>
+                <li><a href="#contact">חברות פרימיום</a></li>
             </ul>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <span></span>
@@ -1026,35 +1056,30 @@
 
     <div class="mobile-menu" id="mobileMenu">
         <ul class="nav-links">
-            <li><a href="#features">שירותים</a></li>
-            <li><a href="#testimonials">לקוחות</a></li>
-            <li><a href="#contact">צור קשר</a></li>
+            <li><a href="#features">שירותים בלעדיים</a></li>
+            <li><a href="#testimonials">לקוחות VIP</a></li>
+            <li><a href="#contact">חברות פרימיום</a></li>
         </ul>
     </div>
 
     <section class="hero">
         <div class="hero-grid"></div>
-        <div class="floating-elements">
-            <div class="floating-dot"></div>
-            <div class="floating-dot"></div>
-            <div class="floating-dot"></div>
-        </div>
         <div class="hero-content">
-            <div class="hero-badge">במיוחד לחודש זה</div>
+            <div class="hero-badge">✨ הצעה בלעדית לחודש זה ✨</div>
             <h1>
-                דפי נחיתה מקצועיים
+                דפי נחיתה יוקרתיים
             </h1>
             <div class="lottery-banner">
-                <div class="lottery-title">✨רק 350₪✨</div>
-                <div class="lottery-text">עיצוב אישי | עלייה מהירה לאוויר | טכנולוגיית AI מתקדמת</div>
+                <div class="lottery-title">💎 רק 350₪ 💎</div>
+                <div class="lottery-text">עיצוב פרימיום | טכנולוגיה מתקדמת | שירות VIP</div>
             </div>  
             <p>
-                תהפוך את המבקרים שלך ללקוחות עם דפי נחיתה שמתוכננים להמיר,
-                עיצוב מקצועי, אופטימיזציה מלאה ומחיר בדיחה
+                חוויה דיגיטלית בלעדית שמעצבת את העתיד של העסק שלך.
+                עיצוב יוקרתי, ביצועים מושלמים ותוצאות מדהימות.
             </p>
             <div class="cta-group">
-                <a href="#contact" class="cta-primary" onclick="document.getElementById('leadForm').scrollIntoView({behavior: 'smooth'})">הזמן עכשיו</a>
-                <a href="#features" class="cta-secondary">למד עוד</a>
+                <a href="#contact" class="cta-primary" onclick="document.getElementById('leadForm').scrollIntoView({behavior: 'smooth'})">השארת פרטים</a>
+                <a href="#features" class="cta-secondary">גלה את החוויה</a>
             </div>
         </div>
     </section>
@@ -1062,42 +1087,42 @@
     <section class="section" id="features">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">למה לבחור בנו?</div>
-                <h2 class="section-title">כל מה שאתה צריך, כבר חווינו</h2>
+                <div class="section-badge">🏆 למה לבחור בחוויה הבלעדית שלנו?</div>
+                <h2 class="section-title">רמה שלא הכרתם</h2>
                 <p class="section-subtitle">
-                    דפי נחיתה מותאמים אישית שמביאים תוצאות מדידות וממקסמים את הרווחיות שלך
+                    כל פרויקט הוא יצירת אמנות דיגיטלית שמעוצבת במיוחד עבור החזון שלכם
                 </p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🎨</div>
-                    <h3>עיצוב מותאם אישית</h3>
-                    <p>כל דף מתוכנן במיוחד עבור העסק שלך ומותאם לקהל היעד הספציפי שלך</p>
+                    <h3>עיצוב אמנותי בלעדי</h3>
+                    <p>כל פיקסל מעוצב בקפידה יוצרת חוויה ויזואלית מרהיבה שמשקפת את הייחודיות של המותג שלכם</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
-                    <h3>רספונסיבי למכשירים</h3>
-                    <p>הדף שלך יראה מושלם ויפעל חלק על כל מכשיר - מחשב, טאבלט וסמארטפון</p>
+                    <h3>חוויה מושלמת בכל מכשיר</h3>
+                    <p>טכנולוגיה מתקדמת שמבטיחה ביצועים מעולים וחוויית משתמש יוקרתית על כל פלטפורמה</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>מהירות טעינה גבוהה</h3>
-                    <p>אתר מהיר שנטען תוך שניות ומספק חוויית משתמש מעולה</p>
+                    <h3>מהירות סופר-פרימיום</h3>
+                    <p>אתר שנטען מהר יותר מהמחשבה - טכנולוגיית קצה שמספקת ביצועים ללא פשרות</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>אופטימיזציה להמרות</h3>
-                    <p>כל אלמנט מתוכנן בקפידה כדי להוביל את המבקרים לבצע פעולה</p>
+                    <h3>אסטרטגיית המרות מתקדמת</h3>
+                    <p>כל אלמנט מתוכנן בדיוק מדעי כדי להוביל את הלקוחות שלכם לפעולה המושלמת</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔧</div>
-                    <h3>קל לניהול ועדכון</h3>
-                    <p>תוכל לעדכן תוכן, מחירים ופרטים בקלות וללא ידע טכני</p>
+                    <h3>ניהול אינטואיטיבי</h3>
+                    <p>ממשק ניהול יוקרתי שמאפשר לכם לשלוט בכל היבט של האתר בקלות מוחלטת</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💎</div>
-                    <h3>איכות פרימיום</h3>
-                    <p>דף נחיתה ברמה של חברות גדולות במחיר של עסק קטן</p>
+                    <h3>רמת פרימיום בלתי מתפשרת</h3>
+                    <p>איכות ברמה של תאגידים גלובליים, שירות אישי ותמיכה VIP לאורך כל הדרך</p>
                 </div>
             </div>
         </div>
@@ -1106,58 +1131,126 @@
     <section class="section testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">מה אומרים עלינו</div>
-                <h2 class="section-title">לקוחות מרוצים</h2>
+                <div class="section-badge">💫 מה אומרים חברי ה-VIP שלנו</div>
+                <h2 class="section-title">סיפורי הצלחה בלעדיים</h2>
                 <p class="section-subtitle">
-                    מאות לקוחות כבר קיבלו דפי נחיתה שהגדילו את המכירות שלהם
+                    לקוחות שחוו את החוויה הפרימיום שלנו וקיבלו תוצאות יוצאות דופן
                 </p>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="stars">☆ ☆ ☆ ☆ ☆</div>
+                    <div class="stars">★ ★ ★ ★ ★</div>
                     <p class="testimonial-text">
-                        "הדף נחיתה שקיבלתי הפך את העסק שלי. המכירות עלו פי 3 תוך חודש והלקוחות מתרשמים מהמקצועיות. ההשקעה החכמה ביותר שעשיתי!"
+                        "החוויה הכי מקצועית שחוויתי. הדף שקיבלתי הוא פשוט יצירת אמנות - יוקרתי, מהיר ויעיל. המכירות שלי עלו פי 4 תוך שבועיים. זה לא סתם דף נחיתה, זה נכס דיגיטלי!"
                     </p>
                     <div class="testimonial-header">
                         <div class="testimonial-info">
                             <h4>שרה כהן</h4>
-                            <span>בעלת חנות אונליין</span>
+                            <span>מנכ"לית חברת יוקרה</span>
                         </div>
-                        
+                        <div class="testimonial-avatar">👑</div>
                     </div>
-                    <div class="testimonial-avatar">👩‍💼</div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="stars">☆ ☆ ☆ ☆ ☆</div>
+                    <div class="stars">★ ★ ★ ★ ★</div>
                     <p class="testimonial-text">
-                    "הופתעתי מהרמה הגבוהה ומהמהירות. הדף מעוצב ברמה הכי גבוהה שיש, נראה יוקרתי ונוגע בדיוק בקהל שלי. אני ממש גאה לשלוח את הלינק הזה
+                        "רמה שלא הכרתי. כל פרט מושלם, העיצוב מרהיב והתוצאות מדברות בעד עצמן. הלקוחות שלי מתרשמים כבר מהרגע הראשון. השקעה שמחזירה את עצמה פי 10!"
                     </p>
                     <div class="testimonial-header">
                         <div class="testimonial-info">
                             <h4>עומר שמילוביץ'</h4>
-                            <span>בעל חנות קרמיקה (ועכשיו גם אינטרנטית)</span>
+                            <span>יזם דיגיטלי מוביל</span>
                         </div>
-    
+                        <div class="testimonial-avatar">💎</div>
                     </div>
-                    <div class="testimonial-avatar">👩‍💼</div>
-                </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-<section class="section contact" id="contact">
-<div class="container">
-    <div class="section-header">
-    <div class="section-badge">צור קשר</div>
-    <h2 class="section-title">השאר פרטים ונחזור אליך</h2>
-    <p class="section-subtitle">
-        ספר לנו איך נוכל לעזור לך - נחזור אליך בהקדם
-    </p>
-    </div>
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">🌟 הצטרף לחברות הבלעדית</div>
+                <h2 class="section-title">בואו ניצור משהו מדהים ביחד</h2>
+                <p class="section-subtitle">
+                    ספרו לנו על החזון שלכם ואנחנו נהפוך אותו למציאות דיגיטלית מרהיבה
+                </p>
+            </div>
 
-        <form id="leadForm" action="https://formspree.io/f/mblkazjo" method="POST">
-        <input type="email" name="email" placeholder="האימייל שלך" required>
-        <input type="tel" name="phone" placeholder="מספר הטלפון שלך" required>
-        <textarea name="message" placeholder="תתאר לנו את העסק בשורה או שתיים" required></textarea>
-        <button type="submit">שלח</button>
-        </form>
-    </div>
+            <form id="leadForm" action="https://formspree.io/f/mblkazjo" method="POST">
+                <h2>✨ פרטים להתייעצות לקראת הגשמת חלום ✨</h2>
+                <input type="email" name="email" placeholder="האימייל הפרטי שלכם" required>
+                <input type="tel" name="phone" placeholder="מספר הטלפון שלכם" required>
+                <textarea name="message" placeholder="ספרו לנו על החזון שלכם ואיך אנחנו יכולים להפוך אותו למציאות" required></textarea>
+                <button type="submit">שלח</button>
+            </form>
+        </div>
+    </section>
 
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 כמו של פעם - חוויות דיגיטליות בלעדיות. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
 
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        // Form submission handling
+        const form = document.getElementById('leadForm');
+        form.addEventListener('submit', function(e) {
+            const button = form.querySelector('button');
+            button.textContent = 'שולח בקשה...';
+            button.disabled = true;
+            
+            // Re-enable button after 3 seconds (in case of error)
+            setTimeout(() => {
+                button.textContent = 'הצטרף לחברות הבלעדית';
+                button.disabled = false;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
